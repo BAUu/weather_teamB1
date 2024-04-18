@@ -21,6 +21,9 @@ CurrentModel _$CurrentModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CurrentModel {
   num get temperature2m => throw _privateConstructorUsedError;
+  num get rain => throw _privateConstructorUsedError;
+  num get weatherCode => throw _privateConstructorUsedError;
+  num get apparent_temperature => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +37,8 @@ abstract class $CurrentModelCopyWith<$Res> {
           CurrentModel value, $Res Function(CurrentModel) then) =
       _$CurrentModelCopyWithImpl<$Res, CurrentModel>;
   @useResult
-  $Res call({num temperature2m});
+  $Res call(
+      {num temperature2m, num rain, num weatherCode, num apparent_temperature});
 }
 
 /// @nodoc
@@ -51,11 +55,26 @@ class _$CurrentModelCopyWithImpl<$Res, $Val extends CurrentModel>
   @override
   $Res call({
     Object? temperature2m = null,
+    Object? rain = null,
+    Object? weatherCode = null,
+    Object? apparent_temperature = null,
   }) {
     return _then(_value.copyWith(
       temperature2m: null == temperature2m
           ? _value.temperature2m
           : temperature2m // ignore: cast_nullable_to_non_nullable
+              as num,
+      rain: null == rain
+          ? _value.rain
+          : rain // ignore: cast_nullable_to_non_nullable
+              as num,
+      weatherCode: null == weatherCode
+          ? _value.weatherCode
+          : weatherCode // ignore: cast_nullable_to_non_nullable
+              as num,
+      apparent_temperature: null == apparent_temperature
+          ? _value.apparent_temperature
+          : apparent_temperature // ignore: cast_nullable_to_non_nullable
               as num,
     ) as $Val);
   }
@@ -69,7 +88,8 @@ abstract class _$$CurrentModelImplCopyWith<$Res>
       __$$CurrentModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({num temperature2m});
+  $Res call(
+      {num temperature2m, num rain, num weatherCode, num apparent_temperature});
 }
 
 /// @nodoc
@@ -84,11 +104,26 @@ class __$$CurrentModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? temperature2m = null,
+    Object? rain = null,
+    Object? weatherCode = null,
+    Object? apparent_temperature = null,
   }) {
     return _then(_$CurrentModelImpl(
       temperature2m: null == temperature2m
           ? _value.temperature2m
           : temperature2m // ignore: cast_nullable_to_non_nullable
+              as num,
+      rain: null == rain
+          ? _value.rain
+          : rain // ignore: cast_nullable_to_non_nullable
+              as num,
+      weatherCode: null == weatherCode
+          ? _value.weatherCode
+          : weatherCode // ignore: cast_nullable_to_non_nullable
+              as num,
+      apparent_temperature: null == apparent_temperature
+          ? _value.apparent_temperature
+          : apparent_temperature // ignore: cast_nullable_to_non_nullable
               as num,
     ));
   }
@@ -97,17 +132,27 @@ class __$$CurrentModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CurrentModelImpl implements _CurrentModel {
-  const _$CurrentModelImpl({required this.temperature2m});
+  const _$CurrentModelImpl(
+      {required this.temperature2m,
+      required this.rain,
+      required this.weatherCode,
+      required this.apparent_temperature});
 
   factory _$CurrentModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$CurrentModelImplFromJson(json);
 
   @override
   final num temperature2m;
+  @override
+  final num rain;
+  @override
+  final num weatherCode;
+  @override
+  final num apparent_temperature;
 
   @override
   String toString() {
-    return 'CurrentModel(temperature2m: $temperature2m)';
+    return 'CurrentModel(temperature2m: $temperature2m, rain: $rain, weatherCode: $weatherCode, apparent_temperature: $apparent_temperature)';
   }
 
   @override
@@ -116,12 +161,18 @@ class _$CurrentModelImpl implements _CurrentModel {
         (other.runtimeType == runtimeType &&
             other is _$CurrentModelImpl &&
             (identical(other.temperature2m, temperature2m) ||
-                other.temperature2m == temperature2m));
+                other.temperature2m == temperature2m) &&
+            (identical(other.rain, rain) || other.rain == rain) &&
+            (identical(other.weatherCode, weatherCode) ||
+                other.weatherCode == weatherCode) &&
+            (identical(other.apparent_temperature, apparent_temperature) ||
+                other.apparent_temperature == apparent_temperature));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, temperature2m);
+  int get hashCode => Object.hash(
+      runtimeType, temperature2m, rain, weatherCode, apparent_temperature);
 
   @JsonKey(ignore: true)
   @override
@@ -138,14 +189,23 @@ class _$CurrentModelImpl implements _CurrentModel {
 }
 
 abstract class _CurrentModel implements CurrentModel {
-  const factory _CurrentModel({required final num temperature2m}) =
-      _$CurrentModelImpl;
+  const factory _CurrentModel(
+      {required final num temperature2m,
+      required final num rain,
+      required final num weatherCode,
+      required final num apparent_temperature}) = _$CurrentModelImpl;
 
   factory _CurrentModel.fromJson(Map<String, dynamic> json) =
       _$CurrentModelImpl.fromJson;
 
   @override
   num get temperature2m;
+  @override
+  num get rain;
+  @override
+  num get weatherCode;
+  @override
+  num get apparent_temperature;
   @override
   @JsonKey(ignore: true)
   _$$CurrentModelImplCopyWith<_$CurrentModelImpl> get copyWith =>

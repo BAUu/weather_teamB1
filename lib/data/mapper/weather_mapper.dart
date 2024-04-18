@@ -4,7 +4,12 @@ import 'package:flutter_weather_team_b1/domain/model/weather_model.dart';
 
 extension CurrentToWeather on Current {
   CurrentModel currentToWeather() {
-    return CurrentModel(temperature2m: temperature2m!);
+    return CurrentModel(
+      temperature2m: temperature2m!,
+      rain: rain!,
+      weatherCode: weatherCode!,
+      apparent_temperature: apparentTemperature!,
+    );
   }
 }
 

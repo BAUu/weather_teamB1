@@ -35,5 +35,4 @@ class WeatherRepositoryImpl implements WeatherRepository {
       'daily': 'weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_probability_max',
     };
   }
-
 }

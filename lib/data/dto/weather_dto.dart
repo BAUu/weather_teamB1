@@ -147,23 +147,35 @@ class Current {
     this.time,
     this.interval,
     this.temperature2m,
+    this.apparentTemperature, // 이 부분 추가
+    this.rain, // 이 부분 추가
+    this.weatherCode, // 이 부분 추가
   });
 
   Current.fromJson(dynamic json) {
     time = json['time'];
     interval = json['interval'];
     temperature2m = json['temperature_2m'];
+    apparentTemperature = json['apparent_temperature']; // 이 부분 추가
+    rain = json['rain']; // 이 부분 추가
+    weatherCode = json['weather_code']; // 이 부분 추가
   }
 
   String? time;
   num? interval;
   num? temperature2m;
+  num? apparentTemperature; // 이 부분 추가
+  num? rain; // 이 부분 추가
+  num? weatherCode; // 이 부분 추가
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['time'] = time;
     map['interval'] = interval;
     map['temperature_2m'] = temperature2m;
+    map['apparent_temperature'] = apparentTemperature; // 이 부분 추가
+    map['rain'] = rain; // 이 부분 추가
+    map['weather_code'] = weatherCode; // 이 부분 추가
     return map;
   }
 }
