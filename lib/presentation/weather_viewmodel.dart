@@ -59,3 +59,4 @@ class WeatherViewModel with ChangeNotifier {
     notifyListeners();
   }
 }
+
