@@ -3,7 +3,7 @@ import 'package:flutter_weather_team_b1/domain/model/current_model.dart';
 import 'package:flutter_weather_team_b1/domain/model/weather_model.dart';
 
 extension CurrentToWeather on Current {
-  CurrentModel currnetToWeather() {
+  CurrentModel currentToWeather() {
     return CurrentModel(temperature2m: temperature2m!);
   }
 }
