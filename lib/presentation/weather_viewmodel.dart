@@ -10,7 +10,7 @@ class WeatherViewModel with ChangeNotifier {
     required WeatherRepository repository,
   }) : _repository = repository;
 
-  WeatherState _state = WeatherState();
+  WeatherState _state = const WeatherState();
 
   WeatherState get state => _state;
 

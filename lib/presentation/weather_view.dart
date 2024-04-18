@@ -41,7 +41,7 @@ class _WeatherViewState extends State<WeatherView> {
                       '${viewModel.state.temperature2m}°C',
                       style: const TextStyle(fontSize: 100),
                     ),
-                    getWeatherIcon(viewModel.state.currentWeatherCode),
+                    Container(width: 100, height: 100, child: getWeatherIcon(viewModel.state.currentWeatherCode)),
                   ],
                 ),
                 const Row(
@@ -195,7 +195,7 @@ class _WeatherViewState extends State<WeatherView> {
 ImageIcon getWeatherIcon(num weatherCode) {
   switch (weatherCode) {
     case 0:
-      return const ImageIcon(AssetImage('assets/sun_1.png'), size: 100,);
+      return const ImageIcon(AssetImage('assets/sun_1.png'));
     case (1 || 2 || 3):
       return const ImageIcon(AssetImage('assets/sun.png'));
     case (45 || 48):
