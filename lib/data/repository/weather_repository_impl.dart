@@ -31,7 +31,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
     return {
       'latitude': lat.toString(),
       'longitude': lng.toString(),
-      'current': 'temperature_2m',
+      'current': 'temperature_2m,apparent_temperature,rain,weather_code',
       'daily': 'weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_probability_max',
     };
   }

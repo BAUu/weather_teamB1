@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_weather_team_b1/data/data_source/weather_data_source.dart';
+import 'package:flutter_weather_team_b1/data/repository/weather_repository_impl.dart';
+import 'package:flutter_weather_team_b1/presentation/weather_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 import 'presentation/weather_view.dart';
 
@@ -14,7 +18,14 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: const WeatherView(),
+      home: ChangeNotifierProvider(
+        create: (_) => WeatherViewModel(
+          repository: WeatherRepositoryImpl(
+            dataSource: WeatherDataSource(),
+          ),
+        ),
+        child: const WeatherView(),
+      ),
     );
   }
 }

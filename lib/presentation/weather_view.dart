@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_weather_team_b1/presentation/weather_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 class WeatherView extends StatefulWidget {
   const WeatherView({super.key});
@@ -9,15 +11,12 @@ class WeatherView extends StatefulWidget {
   State<WeatherView> createState() => _WeatherViewState();
 }
 
-// @override
-// void initState() {
-//   super.initState();
-//   _WeatherViewState = WeatherRepositoryImpl().getCurrent(37.53857055859512, 127.00805612669545);
-// }
-
 class _WeatherViewState extends State<WeatherView> {
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<WeatherViewModel>();
+    viewModel.getWeather();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('날씨'),
@@ -39,7 +38,7 @@ class _WeatherViewState extends State<WeatherView> {
                       height: 80,
                     ),
                     Text(
-                      'tem',
+                      '${viewModel.state.temperature2m}°C',
                       style: TextStyle(fontSize: 150),
                     ),
                     Icon(
