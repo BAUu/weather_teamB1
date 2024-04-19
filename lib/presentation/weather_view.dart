@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_weather_team_b1/presentation/weather_viewmodel.dart';
 import 'package:provider/provider.dart';
 
@@ -27,8 +25,7 @@ class _WeatherViewState extends State<WeatherView> {
         children: [
           Expanded(
             flex: 1,
-            child: Container(
-                child: Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
@@ -41,7 +38,12 @@ class _WeatherViewState extends State<WeatherView> {
                       '${viewModel.state.temperature2m}°C',
                       style: const TextStyle(fontSize: 100),
                     ),
-                    Container(width: 100, height: 100, child: getWeatherIcon(viewModel.state.currentWeatherCode)),
+                    Container(
+                        width: 100,
+                        height: 100,
+                        child: Expanded(
+                            child: getWeatherIcon(
+                                viewModel.state.currentWeatherCode))),
                   ],
                 ),
                 const Row(
@@ -76,10 +78,7 @@ class _WeatherViewState extends State<WeatherView> {
                     ),
                   ],
                 ),
-
-
               ],
-            ),
             ),
           ),
           Expanded(
@@ -101,11 +100,12 @@ class _WeatherViewState extends State<WeatherView> {
                 ListTile(
                   title: Row(
                     children: [
-                      Text('${viewModel.state.time[0]}'),
+                      Text(viewModel.state.time[0]),
                       const SizedBox(
                         width: 32,
                       ),
-                      Text('${viewModel.state.temperature2mMax[0]} / ${viewModel.state.temperature2mMin[0]}'),
+                      Text(
+                          '${viewModel.state.temperature2mMax[0]} / ${viewModel.state.temperature2mMin[0]}'),
                     ],
                   ),
                   trailing: getWeatherIcon(viewModel.state.weatherCode[0]),
@@ -113,11 +113,12 @@ class _WeatherViewState extends State<WeatherView> {
                 ListTile(
                   title: Row(
                     children: [
-                      Text('${viewModel.state.time[1]}'),
+                      Text(viewModel.state.time[1]),
                       const SizedBox(
                         width: 32,
                       ),
-                      Text('${viewModel.state.temperature2mMax[1]} / ${viewModel.state.temperature2mMin[1]}'),
+                      Text(
+                          '${viewModel.state.temperature2mMax[1]} / ${viewModel.state.temperature2mMin[1]}'),
                     ],
                   ),
                   trailing: getWeatherIcon(viewModel.state.weatherCode[1]),
@@ -125,11 +126,12 @@ class _WeatherViewState extends State<WeatherView> {
                 ListTile(
                   title: Row(
                     children: [
-                      Text('${viewModel.state.time[2]}'),
+                      Text(viewModel.state.time[2]),
                       const SizedBox(
                         width: 32,
                       ),
-                      Text('${viewModel.state.temperature2mMax[2]} / ${viewModel.state.temperature2mMin[2]}'),
+                      Text(
+                          '${viewModel.state.temperature2mMax[2]} / ${viewModel.state.temperature2mMin[2]}'),
                     ],
                   ),
                   trailing: getWeatherIcon(viewModel.state.weatherCode[2]),
@@ -137,11 +139,12 @@ class _WeatherViewState extends State<WeatherView> {
                 ListTile(
                   title: Row(
                     children: [
-                      Text('${viewModel.state.time[3]}'),
+                      Text(viewModel.state.time[3]),
                       const SizedBox(
                         width: 32,
                       ),
-                      Text('${viewModel.state.temperature2mMax[3]} / ${viewModel.state.temperature2mMin[3]}'),
+                      Text(
+                          '${viewModel.state.temperature2mMax[3]} / ${viewModel.state.temperature2mMin[3]}'),
                     ],
                   ),
                   trailing: getWeatherIcon(viewModel.state.weatherCode[3]),
@@ -149,11 +152,12 @@ class _WeatherViewState extends State<WeatherView> {
                 ListTile(
                   title: Row(
                     children: [
-                      Text('${viewModel.state.time[4]}'),
+                      Text(viewModel.state.time[4]),
                       const SizedBox(
                         width: 32,
                       ),
-                      Text('${viewModel.state.temperature2mMax[4]} / ${viewModel.state.temperature2mMin[4]}'),
+                      Text(
+                          '${viewModel.state.temperature2mMax[4]} / ${viewModel.state.temperature2mMin[4]}'),
                     ],
                   ),
                   trailing: getWeatherIcon(viewModel.state.weatherCode[4]),
@@ -161,11 +165,12 @@ class _WeatherViewState extends State<WeatherView> {
                 ListTile(
                   title: Row(
                     children: [
-                      Text('${viewModel.state.time[5]}'),
+                      Text(viewModel.state.time[5]),
                       const SizedBox(
                         width: 32,
                       ),
-                      Text('${viewModel.state.temperature2mMax[5]} / ${viewModel.state.temperature2mMin[5]}'),
+                      Text(
+                          '${viewModel.state.temperature2mMax[5]} / ${viewModel.state.temperature2mMin[5]}'),
                     ],
                   ),
                   trailing: getWeatherIcon(viewModel.state.weatherCode[5]),
@@ -173,11 +178,12 @@ class _WeatherViewState extends State<WeatherView> {
                 ListTile(
                   title: Row(
                     children: [
-                      Text('${viewModel.state.time[6]}'),
+                      Text(viewModel.state.time[6]),
                       const SizedBox(
                         width: 32,
                       ),
-                      Text('${viewModel.state.temperature2mMax[6]} / ${viewModel.state.temperature2mMin[6]}'),
+                      Text(
+                          '${viewModel.state.temperature2mMax[6]} / ${viewModel.state.temperature2mMin[6]}'),
                     ],
                   ),
                   trailing: getWeatherIcon(viewModel.state.weatherCode[6]),
@@ -191,37 +197,50 @@ class _WeatherViewState extends State<WeatherView> {
   }
 }
 
-
-ImageIcon getWeatherIcon(num weatherCode) {
+Image getWeatherIcon(num weatherCode) {
   switch (weatherCode) {
     case 0:
-      return const ImageIcon(AssetImage('assets/sun_1.png'));
-    case (1 || 2 || 3):
-      return const ImageIcon(AssetImage('assets/sun.png'));
-    case (45 || 48):
-      return const ImageIcon(AssetImage('assets/fog.png'));
-    case (51 || 53 || 55):
-      return const ImageIcon(AssetImage('assets/rain.png'));
-    case (56 || 57):
-      return const ImageIcon(AssetImage('assets/rain_1.png'));
-    case (61 || 63 || 65):
-      return const ImageIcon(AssetImage('assets/rain.png'));
-    case (66 || 67):
-      return const ImageIcon(AssetImage('assets/rain_1.png'));
-    case (71 || 73 || 75):
-      return const ImageIcon(AssetImage('assets/snow.png'));
-    case (77):
-      return const ImageIcon(AssetImage('assets/snow.png'));
-    case (80 || 81 || 82):
-      return const ImageIcon(AssetImage('assets/drizzle.png'));
-    case (85 || 86):
-      return const ImageIcon(AssetImage('assets/snow.png'));
-    case (95):
-      return const ImageIcon(AssetImage('assets/storm.png'));
-    case (96 || 99):
-      return const ImageIcon(AssetImage('assets/storm.png'));
-  // 추가적인 날씨 코드에 따른 아이콘 추가
+      return Image.asset('assets/sun_1.png');
+    case 1:
+    case 2:
+    case 3:
+      return Image.asset('assets/sun.png');
+    case 45:
+    case 48:
+      return Image.asset('assets/fog.png');
+    case 51:
+    case 53:
+    case 55:
+      return Image.asset('assets/rain.png');
+    case 56:
+    case 57:
+      return Image.asset('assets/rain_1.png');
+    case 61:
+    case 63:
+    case 65:
+      return Image.asset('assets/rain.png');
+    case 66:
+    case 67:
+      return Image.asset('assets/rain_1.png');
+    case 71:
+    case 73:
+    case 75:
+      return Image.asset('assets/snow.png');
+    case 77:
+      return Image.asset('assets/snow.png');
+    case 80:
+    case 81:
+    case 82:
+      return Image.asset('assets/drizzle.png');
+    case 85:
+    case 86:
+      return Image.asset('assets/snow.png');
+    case 95:
+      return Image.asset('assets/storm.png');
+    case 96:
+    case 99:
+      return Image.asset('assets/storm.png');
     default:
-      return const ImageIcon(AssetImage('assets/sun.png'));; // 기본 아이콘
+      return Image.asset('assets/sun.png'); // 기본 아이콘
   }
 }
